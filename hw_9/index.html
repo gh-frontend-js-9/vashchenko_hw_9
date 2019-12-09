@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="keywords" content="html, css, js, tamagotchi"/>
+  <meta name="description" content="It is the primitive tamagotchi game. For the keep your pet alive, you need click on action buttons."/>
+  <meta name="url" content="">
+  <meta name="subject" content="https://github.com/WebInfUa">
+  <meta name="copyright" content="Vashchenko O.V.">
+  <meta name="abstract" content="It is the popular game in 80-90 years XIX. Many peoples plays in this game more hours and weeks. Good luck and have fun">
+  <meta name="topic" content="Java Script">
+  <meta name="Classification" content="Learn">
+  <meta name="author" content="name, web.inf.ua@gmail.com">
+  <meta name="designer" content="Vashchenko O.V.">
+  <meta http-equiv="Cache-Control" content="no-cache">
+
+  <title>Vashchenko</title>
+
+  <link rel="stylesheet" href="main.css">
+
+  <script src="index.js"></script>
+
+</head>
+<body>
+<header class="wrapper">
+  <h1 class="title">Tamagotchi</h1>
+  <div class="description">
+    <img class="saw" src="src/saw.jpg">
+    <h2 class="title-saw">I want to play a game.</h2>
+    <p>Rules</p>
+    <p>It is the primitive tamagotchi game. For the keep your pet alive, you need click on action buttons. If one of parameters lowe very much, you pet is die.</p>
+    <i>Button action:</i>
+    <ul>
+      <li>Eat: +30 food; -20 clean</li>
+      <li>Wash: +40 clean; -20 happiness/li>
+      <li>Plays: +15 happiness; -10 food</li>
+      <li>Visit doctor: +30 health; -20 money</li>
+      <li>Go to bar: +40 socialization; +10 food; -20 money; -10 health</li>
+      <li>Go to work: +50 money; -10 food; -10 health; +20 socialization</li>
+      <li>Buy food: +20 food; -20 money</li>
+      <li>Start a business: +100 money; +100 happiness; -100 health; +20 socialization</li>
+    </ul>
+
+  </div>
+
+  <div>
+    <h3>I want you to make a choice.</h3>
+    <div class="control-btn">
+      <button onclick="closeWindow()">Run while you can!</button>
+      <button onclick="Tamag.killer()">Kill the you pets</button>
+      <button onclick="startGame('easy')">New Fluffy kitty (easy)</button>
+      <button onclick="startGame('hard')">New Lazy pug (hard)</button>
+      <button onclick="startGame('pro')">Ninja super pro(don't real)</button>
+      <button onclick="Tamag.initStats()">Start if you ...</button>
+    </div>
+  </div>
+
+  <p class=""></p>
+</header>
+<main class="wrapper game">
+  <section id="gameStart_js" class="game-start">
+    <div>
+      <div class="game-start__block">
+        <p class="game-start__param">Food: <span class="game-start__meter--food"></span></p>
+        <meter id="feedMeter" class="game-start__meter" min="0" max="100" low="25" high="50" optimum="75" value="100"></meter>
+      </div>
+
+      <div class="game-start__block">
+        <p class="game-start__param">Clean: <span class="game-start__meter--wash"></span></p>
+        <meter id="washMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+      </div>
+
+      <div class="game-start__block">
+        <p class="game-start__param">Happiness: <span class="game-start__meter--run"></span></p>
+        <meter id="runMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+      </div>
+
+      <div class="game-start__block">
+        <p class="game-start__param">Health: <span class="game-start__meter--health"></span></p>
+        <meter id="healthMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+      </div>
+
+      <div class="game-start__block">
+        <p class="game-start__param">Socialization: <span class="game-start__meter--social"></span></p>
+        <meter id="socialMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+      </div>
+
+      <div class="game-start__block">
+        <p class="game-start__param">Money: <span class="game-start__meter--money"></span></p>
+        <meter id="moneyMeter" class="game-start__meter" min="0" max="100" low="30" high="60" optimum="75" value="100"></meter>
+      </div>
+    </div>
+
+    <div class="control-btn">
+      <p>
+        <button onclick="Tamag.feedin()">Feed</button>
+        <span>+30 food; -20 clean</span>
+      </p>
+      <p>
+        <button onclick="Tamag.washes()">Wash</button>
+        <span>+40 clean; -20 happiness</span>
+      </p>
+      <p>
+        <button onclick="Tamag.runs()">Play in ...</button>
+        <span>+15 happiness; -10 food</span>
+      </p>
+      <p>
+        <button onclick="Tamag.medicine()">Visit doctor</button>
+        <span>+30 health; -20 money</span>
+      </p>
+      <p>
+        <button onclick="Tamag.bar()">Go to bar</button>
+        <span>+40 socialization; +10 food; -20 money; -10 health</span>
+      </p>
+      <p>
+        <button onclick="Tamag.work()">Go to work</button>
+        <span>+50 money; -10 food; -10 health; +20 socialization</span>
+      </p>
+      <p>
+        <button onclick="Tamag.shop()">Buy food</button>
+        <span>+20 food; -20 money</span>
+      </p>
+      <p>
+        <button onclick="Tamag.business()">Start business</button>
+        <span>+100 money; +100 happiness; -100 health; +20 socialization</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="gameOver_js" class="game-over">
+    <audio id="scream_js">
+      <source src="src/screamSaw.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <p class="game-over__message">You tamagotchi leave the <br />
+      <span id="gameOverTime_js"></span>
+    </p>
+    <button class="restart" onclick="restart()">Try again!</button>
+  </section>
+</main>
+</body>
+</html>

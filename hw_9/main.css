@@ -1,0 +1,107 @@
+body {
+    font-size: 16px;
+    background-color: #f1f1f1;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    background: -webkit-linear-gradient(#000000, #5f0900, #b41d14, #ff1400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-saw {
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(#ff1400, #b41d14, #5f0900, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.saw {
+    width: 250px;
+    border-radius: 100%;
+}
+
+.game-start {
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-start__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.game-start__param {
+    width: 100px;
+    margin: 0;
+}
+
+.game-start__meter {
+    width: 200px;
+}
+
+.game-start__change--plus {
+    color: #009900;
+}
+
+.game-start__change-minus {
+    color: #99190f;
+}
+
+.eat, .wash, .run {
+    display: none;
+}
+
+.game-over {
+    display: none;
+    background: url("src/game_over.jpg") no-repeat center center;
+    background-size: contain;
+    height: 100%;
+    min-height: 200px;
+}
+
+.game-over__message {
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 100px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.restart {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: red;
+}
