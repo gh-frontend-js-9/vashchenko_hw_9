@@ -34,11 +34,11 @@
     <i>Button action:</i>
     <ul>
       <li>Eat: +30 food; -20 clean</li>
-      <li>Wash: +40 clean; -20 happiness/li>
+      <li>Wash: +40 clean; -20 happiness</li>
       <li>Plays: +15 happiness; -10 food</li>
       <li>Visit doctor: +30 health; -20 money</li>
       <li>Go to bar: +40 socialization; +10 food; -20 money; -10 health</li>
-      <li>Go to work: +50 money; -10 food; -10 health; +20 socialization</li>
+      <li>Go to work: +50 money; -10 food; -10 health; -20 socialization</li>
       <li>Buy food: +20 food; -20 money</li>
       <li>Start a business: +100 money; +100 happiness; -100 health; +20 socialization</li>
     </ul>
@@ -52,8 +52,8 @@
       <button onclick="Tamag.killer()">Kill the you pets</button>
       <button onclick="startGame('easy')">New Fluffy kitty (easy)</button>
       <button onclick="startGame('hard')">New Lazy pug (hard)</button>
-      <button onclick="startGame('pro')">Ninja super pro(don't real)</button>
-      <button onclick="Tamag.initStats()">Start if you ...</button>
+      <button onclick="startGame('pro')">Ninja super pro (don't real)</button>
+      <button onclick="Tamag.initStats()">Start! If you ready...</button>
     </div>
   </div>
 
@@ -64,68 +64,82 @@
     <div>
       <div class="game-start__block">
         <p class="game-start__param">Food: <span class="game-start__meter--food"></span></p>
-        <meter id="feedMeter" class="game-start__meter" min="0" max="100" low="25" high="50" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="feedMeter" class="game-start__meter" min="0" max="100" low="25" high="50" optimum="75" value="100"></meter>
+          <span class="feed positive">+30</span>
+          <span class="happiness negative">-10</span>
+          <span class="bar positive">+10</span>
+          <span class="work negative">-10</span>
+          <span class="shop positive">+20</span>
+
+        </div>
       </div>
 
       <div class="game-start__block">
         <p class="game-start__param">Clean: <span class="game-start__meter--wash"></span></p>
-        <meter id="washMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="washMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+          <span class="feed negative">-20</span>
+          <span class="wash positive">+40</span>
+        </div>
       </div>
 
       <div class="game-start__block">
         <p class="game-start__param">Happiness: <span class="game-start__meter--run"></span></p>
-        <meter id="runMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="runMeter" class="game-start__meter" min="0" max="100" low="35" high="60" optimum="75" value="100"></meter>
+          <span class="wash negative">-20</span>
+          <span class="happiness positive">+15</span>
+          <span class="business positive">+100</span>
+
+        </div>
       </div>
 
       <div class="game-start__block">
         <p class="game-start__param">Health: <span class="game-start__meter--health"></span></p>
-        <meter id="healthMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="healthMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+          <span class="medicine positive">+30</span>
+          <span class="bar negative">-10</span>
+          <span class="work negative">-10</span>
+          <span class="business negative">-100</span>
+        </div>
+
       </div>
 
       <div class="game-start__block">
         <p class="game-start__param">Socialization: <span class="game-start__meter--social"></span></p>
-        <meter id="socialMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="socialMeter" class="game-start__meter" min="0" max="100" low="40" high="60" optimum="75" value="100"></meter>
+          <span class="bar positive">+40</span>
+          <span class="work negative">-20</span>
+          <span class="business positive">+20</span>
+
+        </div>
       </div>
 
       <div class="game-start__block">
         <p class="game-start__param">Money: <span class="game-start__meter--money"></span></p>
-        <meter id="moneyMeter" class="game-start__meter" min="0" max="100" low="30" high="60" optimum="75" value="100"></meter>
+        <div class="meter-status">
+          <meter id="moneyMeter" class="game-start__meter" min="0" max="100" low="30" high="60" optimum="75" value="100"></meter>
+          <span class="medicine negative">-20</span>
+          <span class="bar negative">-20</span>
+          <span class="work positive">+50</span>
+          <span class="shop negative">-20</span>
+          <span class="business positive">+100</span>
+        </div>
       </div>
     </div>
 
-    <div class="control-btn">
-      <p>
-        <button onclick="Tamag.feedin()">Feed</button>
-        <span>+30 food; -20 clean</span>
-      </p>
-      <p>
+    <div class="play-btn">
+        <button onclick="Tamag.feeder()">Feed</button>
         <button onclick="Tamag.washes()">Wash</button>
-        <span>+40 clean; -20 happiness</span>
-      </p>
-      <p>
         <button onclick="Tamag.runs()">Play in ...</button>
-        <span>+15 happiness; -10 food</span>
-      </p>
-      <p>
         <button onclick="Tamag.medicine()">Visit doctor</button>
-        <span>+30 health; -20 money</span>
-      </p>
-      <p>
         <button onclick="Tamag.bar()">Go to bar</button>
-        <span>+40 socialization; +10 food; -20 money; -10 health</span>
-      </p>
-      <p>
         <button onclick="Tamag.work()">Go to work</button>
-        <span>+50 money; -10 food; -10 health; +20 socialization</span>
-      </p>
-      <p>
         <button onclick="Tamag.shop()">Buy food</button>
-        <span>+20 food; -20 money</span>
-      </p>
-      <p>
         <button onclick="Tamag.business()">Start business</button>
-        <span>+100 money; +100 happiness; -100 health; +20 socialization</span>
-      </p>
     </div>
   </section>
 

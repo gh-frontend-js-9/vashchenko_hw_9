@@ -1,6 +1,7 @@
 body {
     font-size: 16px;
-    background-color: #f1f1f1;
+    background: linear-gradient(#000000, #4c0009);
+    color: #ffffff;
 }
 
 p {
@@ -41,43 +42,90 @@ p {
 }
 
 .game-start {
+    display: none;
     min-height: 200px;
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .control-btn {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.control-btn button {
+    margin: 0 10px;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+}
+
+.control-btn button:hover {
+    transition: 1s;
+    color: #100005;
+    background: linear-gradient(#f5f5f5, #4c0009);;
 }
 
 .game-start__block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 20px auto;
 }
 
 .game-start__param {
-    width: 100px;
+    width: 130px;
     margin: 0;
 }
 
 .game-start__meter {
-    width: 200px;
+    width: 300px;
+    height: 20px;
 }
 
-.game-start__change--plus {
-    color: #009900;
+.game-start__meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 10px;
 }
 
-.game-start__change-minus {
-    color: #99190f;
+.game-start__meter::-webkit-meter-optimum-value {
+    background: linear-gradient(#ffffff, #1bff00); /* Green */
+    border-radius: 10px;
 }
 
-.eat, .wash, .run {
-    display: none;
+.game-start__meter::-webkit-meter-suboptimum-value {
+    background: linear-gradient(#ffffff, #ffc343); /* Green */
+    border-radius: 10px;
+}
+
+.game-start__meter::-webkit-meter-even-less-good-value {
+    background: linear-gradient(#ffffff, #ff0404); /* Green */
+    border-radius: 10px;
+}
+
+.play-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+}
+
+.play-btn button {
+    padding: 3px 15px;
+    margin: 3px;
+    color: #990000;
+    background: linear-gradient(#a2a2a2, #8f9f98);
+    border: none;
+    border-radius: 10px;
+}
+
+.play-btn button:hover {
+    color: #000000;
+    background: linear-gradient(#ffffff, #fff8f3);
 }
 
 .game-over {
@@ -104,4 +152,20 @@ p {
     padding: 5px 15px;
     background-color: rgba(0, 0, 0, 0.5);
     color: red;
+}
+
+.positive {
+    color: #1bff00;
+}
+
+.negative {
+    color: #000000;
+}
+
+.feed, .wash, .happiness, .medicine, .bar, .work, .shop, .business {
+    display: none;
+}
+
+.meter-status {
+    width: 380px;
 }
